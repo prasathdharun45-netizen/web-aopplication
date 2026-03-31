@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #141e30, #243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 0 10px black;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #243b55;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #141e30;
+        }
+
+        #details {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="loginBox">
+        <h2>Login</h2>
+
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div class="box" id="details">
+        <h2>Welcome 🎉</h2>
+        <p><b>Name:</b> Dharun Prasath</p>
+        <p><b>Course:</b> B.E Computer Science (Cyber Security)</p>
+        <p><b>Goal:</b> SOC Analyst 🔐</p>
+        <p><b>Skills:</b> Linux, Networking, Cybersecurity Basics</p>
+    </div>
+
+    <script>
+        // 🔑 Custom login credentials
+        var correctUsername = "dharun";
+        var correctPassword = "secure123";
+
+        function login() {
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+
+            if(user === correctUsername && pass === correctPassword) {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("details").style.display = "block";
+            } else {
+                alert("Wrong Username or Password ❌");
+            }
+        }
+    </script>
+
+</body>
+</html>
