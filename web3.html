@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Login</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: black;
+            color: #00ffcc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: #111;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #00ffcc;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            color: #00ffcc;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>🔐 Secure Login</h2>
+
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password" id="pass">
+
+        <a onclick="togglePassword()">Show/Hide Password</a><br><br>
+
+        <button onclick="login()">Login</button>
+    </div>
+
+    <script>
+        // 👥 Multiple users
+        const users = [
+            {username: "dharun", password: "1234"},
+            {username: "admin", password: "admin123"}
+        ];
+
+        function togglePassword() {
+            let passField = document.getElementById("password");
+            passField.type = passField.type === "password" ? "text" : "password";
+        }
+
+        function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+
+            let validUser = users.find(u => u.username === user && u.password === pass);
+
+            if(validUser) {
+                alert("Login Success 🚀");
+                window.location.href = "dashboard.html"; // redirect
+            } else {
+                alert("Invalid Login ❌");
+            }
+        }
+    </script>
+
+</body>
+</html>
